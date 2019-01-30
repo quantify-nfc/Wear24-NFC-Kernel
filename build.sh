@@ -1,4 +1,4 @@
-export CROSS_COMPILE=$(pwd)/toolchain/bin/arm-eabi-
+export CROSS_COMPILE=$(pwd)/toolchain/arm-eabi/bin/
 export ARCH=arm && export SUBARCH=arm
 
 mkdir -p out

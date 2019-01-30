@@ -142,7 +142,7 @@
 #define OFF_x86_cpu_id_family 2 /* offsetof(struct x86_cpu_id, family)	@ */
 #define OFF_x86_cpu_id_model 4 /* offsetof(struct x86_cpu_id, model)	@ */
 #define OFF_x86_cpu_id_vendor 0 /* offsetof(struct x86_cpu_id, vendor)	@ */
-#define SIZE_cpu_feature 4 /* sizeof(struct cpu_feature)	@ */
+#define SIZE_cpu_feature 2 /* sizeof(struct cpu_feature)	@ */
 #define OFF_cpu_feature_feature 0 /* offsetof(struct cpu_feature, feature)	@ */
 #define SIZE_mei_cl_device_id 36 /* sizeof(struct mei_cl_device_id)	@ */
 #define OFF_mei_cl_device_id_name 0 /* offsetof(struct mei_cl_device_id, name)	@ */
