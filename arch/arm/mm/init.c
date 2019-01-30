@@ -622,7 +622,7 @@ void __init mem_init(void)
 		   "      .text : 0x%p" " - 0x%p" "   (%4ld kB)\n"
 		   "      .init : 0x%p" " - 0x%p" "   (%4ld kB)\n"
 		   "      .data : 0x%p" " - 0x%p" "   (%4ld kB)\n"
-		   "       .bss : 0x%p" " - 0x%p" "   (%4ld kB)\n",
+		   "       .bss : 0x%p" " - 0x%p" "   (%4d kB)\n",
 #ifdef CONFIG_HIGHMEM
 			MLM(PKMAP_BASE, (PKMAP_BASE) + (LAST_PKMAP) *
 				(PAGE_SIZE)),
