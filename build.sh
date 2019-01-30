@@ -5,5 +5,5 @@ mkdir -p out
 
 make O=out clean
 #make O=out mrproper
-make O=out msm8909w
+make O=out msm8909w-perf
 make O=out -j$(nproc --all)
