@@ -1,5 +1,11 @@
 language: c
 
 install: make get-deps
-
 compiler: gcc
+
+before_install:
+- sudo apt-get update -q
+- sudo apt-get install gcc-4.8 -y
+- export ARCH=arm && export SUBARCH=arm
+- make clean
+- make msm8909w-perf
