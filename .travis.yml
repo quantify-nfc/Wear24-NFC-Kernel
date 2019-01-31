@@ -1,6 +1,5 @@
 language: c
 
-install: make O=out get-deps
 compiler: gcc
 
 before_install:
