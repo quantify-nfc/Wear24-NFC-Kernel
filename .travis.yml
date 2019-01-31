@@ -9,3 +9,5 @@ before_install:
 - export ARCH=arm && export SUBARCH=arm
 - make clean
 - make msm8909w-perf
+
+script: build.sh
