@@ -9,7 +9,7 @@
 #
 # Normal rules
 #
-#.*
+.*
 *.o
 *.o.*
 *.a
@@ -36,6 +36,16 @@ modules.builtin
 Module.symvers
 *.dwo
 
+
+
+
+kernel/out/*
+!.travis.yml
+
+
+
+
+
 #
 # Top-level generic files
 #
@@ -57,7 +67,6 @@ Module.symvers
 #
 !.gitignore
 !.mailmap
-!.config
 
 #
 # Generated include files

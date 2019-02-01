@@ -6,10 +6,11 @@ This project is a linux kernel for the Quantas Dorado (sold as Verizon Wear24). 
 
 ### Automatic
 
-Build using `bash build.sh`.
+Build using `./build.sh`.
 
 ### Manual
 
+- Enter the `kernel` directory (`cd kernel`)
 - Make sure you `make O=out clean` the project first. (Using `make O=out mrproper` can ruin some stuff like the config.)
 - Export the cross compiler toolchain (gcc) location: `export CROSS_COMPILE=path/to/gcc/`
 - Export the (sub)architecture : `export ARCH=arm && export SUBARCH=arm`
@@ -24,4 +25,5 @@ Build using `bash build.sh`.
 https://discord.gg/8XyTeUC
 
 ## Travis CI
+
 [![Build Status](https://travis-ci.org/davwheat/Wear24-NFC.svg?branch=master)](https://travis-ci.org/davwheat/Wear24-NFC)
