@@ -1,1 +1,0 @@
-obj-$(CONFIG_IPA3) += ipa_usb.o
