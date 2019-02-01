@@ -1,6 +1,6 @@
 cd kernel
 
-export CROSS_COMPILE=$(pwd)/tools/toolchain/arm-eabi/bin/
+export CROSS_COMPILE=$(pwd)/../tools/toolchain/arm-eabi/bin/
 export ARCH=arm && export SUBARCH=arm
 
 mkdir -p out
