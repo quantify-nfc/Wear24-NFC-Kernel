@@ -36,6 +36,16 @@ modules.builtin
 Module.symvers
 *.dwo
 
+
+
+
+kernel/out/*
+!.travis.yml
+
+
+
+
+
 #
 # Top-level generic files
 #
