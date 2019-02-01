@@ -56,22 +56,22 @@ void notrace restore_processor_state(void)
  *
  * When soft reboot completes, the hibernation snapshot is written out.
  */
-//static int notrace arch_save_image(unsigned long unused)
-//{
-//	int ret;
-//
-//	ret = swsusp_save();
-//	if (ret == 0)
-//		_soft_restart(virt_to_phys(cpu_resume), false);
-//	return ret;
-//}
+static int notrace arch_save_image(unsigned long unused)
+{
+	int ret;
+
+	ret = swsusp_save();
+	if (ret == 0)
+		_soft_restart(virt_to_phys(cpu_resume), false);
+	return ret;
+}
 
 /*
  * Save the current CPU state before suspend / poweroff.
  */
 int notrace swsusp_arch_suspend(void)
 {
-	return cpu_suspend(0);
+	return cpu_suspend(0, arch_save_image);
 }
 
 /*

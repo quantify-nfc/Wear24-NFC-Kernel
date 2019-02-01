@@ -394,7 +394,7 @@ static int __init atomic_pool_init(void)
 		gen_pool_set_algo(atomic_pool,
 				gen_pool_first_fit_order_align,
 				(void *)PAGE_SHIFT);
-		pr_info("DMA: preallocated %d KiB pool for atomic coherent allocations\n",
+		pr_info("DMA: preallocated %zd KiB pool for atomic coherent allocations\n",
 		       atomic_pool_size / 1024);
 		return 0;
 	}
@@ -403,7 +403,7 @@ destroy_genpool:
 	gen_pool_destroy(atomic_pool);
 	atomic_pool = NULL;
 out:
-	pr_err("DMA: failed to allocate %d KiB pool for atomic coherent allocation\n",
+	pr_err("DMA: failed to allocate %zx KiB pool for atomic coherent allocation\n",
 	       atomic_pool_size / 1024);
 	return -ENOMEM;
 }
