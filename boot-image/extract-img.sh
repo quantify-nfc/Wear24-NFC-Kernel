@@ -1,0 +1,1 @@
+abootimg -x stock.img

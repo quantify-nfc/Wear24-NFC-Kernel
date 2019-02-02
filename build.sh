@@ -11,6 +11,12 @@ make O=out dorado_defconfig
 make O=out -j$(nproc --all)
 
 echo "Build complete!"
-echo "zImage in:" $(pwd)/out/arch/arm/boot
+echo "zImage in: "$(pwd)/out/arch/arm/boot
+echo "Converting to boot image..."
+
+cp out/arch/arm/boot/zImage ../boot-image
+cd ../boot-image
+
+./do-all.sh
 
 cd ..
