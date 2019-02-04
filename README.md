@@ -16,9 +16,9 @@ Build and compile into `boot.img` using `./build.sh`.
 - Export the (sub)architecture : `export ARCH=arm && export SUBARCH=arm`
 - Create the output directory: `mkdir -p out`
 - Set up the defconfig: `make O=out dorado_defconfig`
-- Start building: `make O=out -j$(nproc --all)`*
+- Start building: `make O=out -j$(nproc --all)` (see note 1)
 
-* `$(nproc -all)` is just the number of cores on your system. It is set automagically and you can replace it with another number if you'd like.
+1: `$(nproc -all)` is just the number of cores on your system. It is set automagically and you can replace it with another number if you'd like.
 
 ## Discord
 
