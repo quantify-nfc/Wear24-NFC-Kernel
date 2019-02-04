@@ -6,7 +6,7 @@ This project is a Linux kernel for the Quantas Dorado (sold as Verizon Wear24). 
 
 ### Automatic
 
-Build using `./build.sh`.
+Build and compile into `boot.img` using `./build.sh`.
 
 ### Manual
 
@@ -15,7 +15,7 @@ Build using `./build.sh`.
 - Export the cross compiler toolchain (gcc) location: `export CROSS_COMPILE=path/to/gcc/`
 - Export the (sub)architecture : `export ARCH=arm && export SUBARCH=arm`
 - Create the output directory: `mkdir -p out`
-- Set up the defconfig: `make O=out msm8909w-perf`
+- Set up the defconfig: `make O=out dorado_defconfig`
 - Start building: `make O=out -j$(nproc --all)`*
 
 * `$(nproc -all)` is just the number of cores on your system. It is set automagically and you can replace it with another number if you'd like.
