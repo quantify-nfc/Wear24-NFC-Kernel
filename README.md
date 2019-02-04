@@ -1,6 +1,6 @@
 # Wear24 NFC
 
-This project is a linux kernel for the Quantas Dorado (sold as Verizon Wear24). Our aim is to get the watch to support NFC, a feature Verizon promised, yet never shipped.
+This project is a Linux kernel for the Quantas Dorado (sold as Verizon Wear24). Our aim is to get the watch to support NFC, a feature Verizon promised, yet never shipped.
 
 ## Building
 
