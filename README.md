@@ -18,7 +18,7 @@ Build using `./build.sh`.
 - Set up the defconfig: `make O=out msm8909w-perf`
 - Start building: `make O=out -j$(nproc --all)`*
 
-* `$(nproc -all)` is just the number of cores on your system. It is set automagically and your can replace it with another number if you'd like.
+* `$(nproc -all)` is just the number of cores on your system. It is set automagically and you can replace it with another number if you'd like.
 
 ## Discord
 
