@@ -1,1 +1,1 @@
-abootimg --create dorado-kernel-image-nfc.img -f bootimg.cfg -k zImage -r initrd.img
+./../tools/mkbootimg/binaries/mkbootimg --kernel zImage-dtb --ramdisk unpacked/stock.img-ramdisk.gz --cmdline "console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=dorado msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 buildvariant=user" --base 80000000 --pagesize 2048 --kernel_offset 00008000 --ramdisk_offset 01000000 --tags_offset 00000100 --os_version 7.1.1 --os_patch_level 2017-03 -o JareDav_$(date +"%m-%d-%Y_%H-%M-%S").img
