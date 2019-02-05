@@ -1,1 +1,2 @@
-abootimg -x stock.img
+mkdir unpacked
+./../tools/mkbootimg/binaries/unpackbootimg -i stock.img -o unpacked
