@@ -2,8 +2,12 @@
 ./build-image.sh
 
 echo "Deleting unneeded files..."
-rm -rf unpacked
+rm -f bootimg.cfg
+rm -f initrd.img
+
+cp zImage ../
+cp dorado-kernel-image-nfc.img ../
 
 echo "Done!"
-echo "Find kernel image here: "$(pwd)"/JareDav_"$(date +"%m-%d-%Y_%H-%M-%S")".img"
-echo "Find zImage here: "$(pwd)"/zImage-dtb"
+echo "Find kernel image here: "$(pwd)"/../dorado-kernel-image-nfc.img"
+echo "Find zImage here: "$(pwd)"/../zImage"
