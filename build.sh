@@ -14,7 +14,7 @@ echo "Build complete!"
 echo "zImage in: "$(pwd)/out/arch/arm/boot
 echo "Converting to boot image..."
 
-cp out/arch/arm/boot/zImage ../boot-image
+cp out/arch/arm/boot/zImage-dtb ../boot-image
 cd ../boot-image
 
 ./do-all.sh
