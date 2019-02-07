@@ -9,7 +9,7 @@ before_install:
   - chmod +x send.sh
   - ./send.sh build-start $WEBHOOK_URL
 
-script: bash build.sh
+script: ./build.sh
 
 jobs:
   include:
