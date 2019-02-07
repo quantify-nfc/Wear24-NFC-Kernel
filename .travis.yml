@@ -19,7 +19,6 @@ deploy:
     - "./boot-image/JareDav_$($DATE_TIME).img"
     - "./zImage"
   on:
-    repo: davwheat/Wear24-NFC-Kernel
     tags: true
 
 after_success:
