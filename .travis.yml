@@ -24,6 +24,9 @@ jobs:
           - "./zImage"
         on:
           repo: davwheat/Wear24-NFC-Kernel
+        branches:
+          only:
+            - travis-releases
 
 after_success:
   - ./send.sh success $WEBHOOK_URL
