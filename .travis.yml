@@ -11,22 +11,16 @@ before_install:
 
 script: ./build.sh
 
-jobs:
-  include:
-    - stage: GitHub Release Deployment
-      script: echo "Deploying as GitHub release"
-      deploy:
-        provider: releases
-        api_key:
-          secure: UAJ+tY8zcU0Z0GgV8yiwpgd+w0XharkII0jktxkfIAPjqPPhwzUHWf1sq5gqEFW2O5uK78By3KG7QTEDkrSfT4A5CUg4cWAj98/Ovh6jbNej5smxBDweJLfStrKZ4hA67FVHY7BUFQyf6JAjsBhmht22f3u3p3H3duxyuvbuCYZ4C48WQQNNf5ZHVbAcHgm2HOrblaENwoByXcTtXgcOHrIKC1H6tyHNoVPTEnODnK2PC/JhbqsJWBpY8ycTqif8KHJsz9bXn6/3dVYTmXDpUt6B6+JdbT/NbMJqSJLg29dKCuQQbw8XxQe0zLvu8dHZH/ZLXmmJO8P/IOEi6VFm6pLoSUaJDnW4+Qtj8Ng3o+jUBNyY+xPea/18aq4xuHFN/RHzl0V68Og3M+8FUts/rokM2RGn1L7SHheWXpI1SJ9Lo44d05MlUrnexOyS/+wNaWZon1DbqN2PVP7Diias3IBBi6sj5qfHSix+vtjAAI1RBzp4v7XTX8Hsv0ofpwIcPB01S2k1UqutqqTBX1Ic1pP84VLk1amgem1jMftUZV+FG8gtiurjcrv4ZLNIR6U7JFPz0ZLqpovqZUxQHMGTijuLTzWF7RQmgYA0UkzdpHSg22/4MxpmnI83YaRQBVC9RggK9IkZ7OObxU1C46eGsT9V1ldKKEykRqZ7vwJ2Mig=
-        file:
-          - "./boot-image/JareDav_$($DATE_TIME).img"
-          - "./zImage"
-        on:
-          repo: davwheat/Wear24-NFC-Kernel
-        branches:
-          only:
-            - travis-releases
+deploy:
+  provider: releases
+  api_key:
+    secure: UAJ+tY8zcU0Z0GgV8yiwpgd+w0XharkII0jktxkfIAPjqPPhwzUHWf1sq5gqEFW2O5uK78By3KG7QTEDkrSfT4A5CUg4cWAj98/Ovh6jbNej5smxBDweJLfStrKZ4hA67FVHY7BUFQyf6JAjsBhmht22f3u3p3H3duxyuvbuCYZ4C48WQQNNf5ZHVbAcHgm2HOrblaENwoByXcTtXgcOHrIKC1H6tyHNoVPTEnODnK2PC/JhbqsJWBpY8ycTqif8KHJsz9bXn6/3dVYTmXDpUt6B6+JdbT/NbMJqSJLg29dKCuQQbw8XxQe0zLvu8dHZH/ZLXmmJO8P/IOEi6VFm6pLoSUaJDnW4+Qtj8Ng3o+jUBNyY+xPea/18aq4xuHFN/RHzl0V68Og3M+8FUts/rokM2RGn1L7SHheWXpI1SJ9Lo44d05MlUrnexOyS/+wNaWZon1DbqN2PVP7Diias3IBBi6sj5qfHSix+vtjAAI1RBzp4v7XTX8Hsv0ofpwIcPB01S2k1UqutqqTBX1Ic1pP84VLk1amgem1jMftUZV+FG8gtiurjcrv4ZLNIR6U7JFPz0ZLqpovqZUxQHMGTijuLTzWF7RQmgYA0UkzdpHSg22/4MxpmnI83YaRQBVC9RggK9IkZ7OObxU1C46eGsT9V1ldKKEykRqZ7vwJ2Mig=
+  file:
+    - "./boot-image/JareDav_$($DATE_TIME).img"
+    - "./zImage"
+  on:
+    repo: davwheat/Wear24-NFC-Kernel
+    tags: true
 
 after_success:
   - ./send.sh success $WEBHOOK_URL
