@@ -22,6 +22,9 @@ addons:
 
 script: ./build.sh
 
+before_deploy:
+- git add -A
+
 deploy:
   provider: releases
   api_key:
