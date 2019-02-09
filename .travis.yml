@@ -29,7 +29,7 @@ deploy:
   file_glob: true
   file:
   - "$TRAVIS_BUILD_DIR/boot-image/JareDav_*.img"
-  - "$TRAVIS_BUILD_DIR/zImage"
+  - "$TRAVIS_BUILD_DIR/boot-image/zImage-dtb"
   draft: true
 
 after_success:
