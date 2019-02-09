@@ -4,6 +4,12 @@
 
 This project is a Linux kernel for the Quanta's `dorado` (sold as the Verizon Wear24). Our aim is to get the watch to support NFC, a feature Verizon promised, yet never shipped.
 
+## Branches
+
+`master`: stable branch, used for testing
+`nfc`: unstable branch, experimental, likely broken half the time
+`release`: end user branch, this is what we'll be distributing when the kernel at a point where there's a reason to flash it
+
 ## Building
 
 ### Automatic
