@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e
-
 timeout () {
     tput sc
     time=$1; while [ $time -ge 0 ]; do
@@ -20,7 +18,6 @@ echo "And Quanta/AOSP, I suppose :')"
 echo "---------------------------------------------------"
 timeout 3 "Build begins in %s seconds."
 
-
 cd kernel
 
 export CROSS_COMPILE=$(pwd)/../tools/toolchain/arm-eabi/bin/
@@ -28,10 +25,12 @@ export ARCH=arm && export SUBARCH=arm
 
 mkdir -p out
 
+set -e
 make O=out clean
 #make O=out mrproper
 make O=out dorado_defconfig
 make O=out -j$(nproc --all)
+set +e
 
 echo "Build complete!"
 echo "zImage in: "$(pwd)/out/arch/arm/boot
