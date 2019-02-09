@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 timeout () {
     tput sc
     time=$1; while [ $time -ge 0 ]; do
