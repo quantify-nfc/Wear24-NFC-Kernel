@@ -31,6 +31,9 @@ deploy:
   - "$TRAVIS_BUILD_DIR/boot-image/JareDav_*.img"
   - "$TRAVIS_BUILD_DIR/boot-image/zImage-dtb"
   draft: true
+  on:
+    repo: davwheat/Wear24-NFC-Kernel
+    branch: releases
 
 after_success:
 - ./send.sh success $WEBHOOK_URL
