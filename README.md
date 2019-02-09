@@ -1,6 +1,6 @@
 # Wear24 NFC
 
-[![Build Status](https://travis-ci.org/davwheat/Wear24-NFC.svg?branch=master)](https://travis-ci.org/davwheat/Wear24-NFC)
+[![Build Status](https://travis-ci.org/davwheat/Wear24-NFC-Kernel.svg?branch=master)](https://travis-ci.org/davwheat/Wear24-NFC)
 
 This project is a Linux kernel for the Quanta's `dorado` (sold as the Verizon Wear24). Our aim is to get the watch to support NFC, a feature Verizon promised, yet never shipped.
 
