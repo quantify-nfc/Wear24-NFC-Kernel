@@ -33,7 +33,7 @@ deploy:
   draft: true
   on:
     repo: davwheat/Wear24-NFC-Kernel
-    branch: releases
+    branch: release
 
 after_success:
 - ./send.sh success $WEBHOOK_URL
