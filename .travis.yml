@@ -4,6 +4,11 @@ compiler: gcc
 os: linux
 dist: xenial
 
+sudo: false
+
+cache:
+  apt: true
+
 before_install:
 - wget https://raw.githubusercontent.com/davwheat/travis-ci-discord-webhook/master/send.sh
 - chmod +x send.sh
@@ -24,8 +29,7 @@ deploy:
   file:
   - "./boot-image/JareDav_$DATE_TIME.img"
   - "./zImage"
-  on:
-    tags: true
+  draft: true
 
 after_success:
 - ./send.sh success $WEBHOOK_URL
