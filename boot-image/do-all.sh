@@ -7,5 +7,5 @@ echo "Deleting unneeded files..."
 rm -rf unpacked
 
 echo "Done!"
-echo "Find kernel image here: "$(pwd)"/JareDav_"$DATE_TIME".img"
-echo "Find zImage here: "$(pwd)"/zImage-dtb"
+echo "If build succeeded, find kernel image here: "$(pwd)"/JareDav_"$DATE_TIME".img"
+echo "If build succeeded, find zImage here: "$(pwd)"/zImage-dtb"
