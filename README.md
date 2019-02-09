@@ -19,7 +19,7 @@ Build and compile into `boot.img` using `./build.sh`.
 - Create the output directory: `mkdir -p out`
 - Set up the defconfig: `make O=out dorado_defconfig`
 - Start building: `make O=out -j$(nproc --all)` (see note 1)
-- If build succeeds, copy `dorado/kernel/out/arch/arm/boot/zImage-dtb` to `dorado/boot-image`
+- If build succeeds,  `cd ../boot-image && cp ../kernel/out/arch/arm/boot/zImage-dtb ./`
 - `mkdir unpacked && ../tools/mkbootimg/unpackbootimg -i stock.img -o unpacked` unpacks the stock boot image from Quanta, so we can get the ramdisk
 - Make the boot image using `../tools/mkbootimg/mkbootimg`. Make sure to include all the parameters `unpackbootimg` gave you.
 
