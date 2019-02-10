@@ -10,7 +10,7 @@ https://discord.gg/8XyTeUC
 
 ## Branches
 
-You are on **MASTER**.
+You are on **NFC**.
 
 This repository has three main branches: `master`, `nfc` and `release`. These branches are semi-equivalent to Google Chrome's Stable, Beta and Dev update channels.
 
