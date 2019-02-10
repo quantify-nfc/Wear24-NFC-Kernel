@@ -23,7 +23,6 @@ addons:
 script: ./build.sh
 
 before_deploy:
-- git add -A
 - git config --local user.name $GIT_NAME
 - git config --local user.email $GIT_EMAIL
 - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
@@ -41,6 +40,11 @@ deploy:
   on:
     repo: davwheat/Wear24-NFC-Kernel
     branch: release
+    
+after_deploy:
+- git add -A
+- git commit -a -m "TRAVIS: Add release"
+- git push
 
 after_success:
 - ./send.sh success $WEBHOOK_URL
