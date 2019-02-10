@@ -1,14 +1,24 @@
 # Wear24 NFC
 
-[![Build Status](https://travis-ci.org/davwheat/Wear24-NFC-Kernel.svg?branch=master)](https://travis-ci.org/davwheat/Wear24-NFC)
+[![Build Status](https://travis-ci.org/davwheat/Wear24-NFC-Kernel.svg?branch=master)](https://travis-ci.org/davwheat/Wear24-NFC-Kernel)
 
 This project is a Linux kernel for the Quanta's `dorado` (sold as the Verizon Wear24). Our aim is to get the watch to support NFC, a feature Verizon promised, yet never shipped.
 
+## Discord
+
+https://discord.gg/8XyTeUC
+
 ## Branches
 
-`master`: stable branch, used for testing
-`nfc`: unstable branch, experimental, likely broken half the time
-`release`: end user branch, this is what we'll be distributing when the kernel at a point where there's a reason to flash it
+You are on **RELEASE**.
+
+This repository has three main branches: `master`, `nfc` and `release`. These branches are semi-equivalent to Google Chrome's Stable, Beta and Dev update channels.
+
+`master` is *normally* stable. We generally don't push changes here unless we are confident that they work. We don't recommend flashing your device using this code despite us calling it 'stable'.
+
+`nfc` is unstable and experimental. Likely broken half the time. **DO NOT FLASH FROM HERE UNLESS YOU WANT TO** (probably) **BRICK YOUR DEVICE!**
+
+`release` is our end user branch. This is where we will distribute the kernel when there is an actual reason to flash it. Our releases are automagically built by our [Travis CI integration](https://travis-ci.org/davwheat/Wear24-NFC-Kernel/branches) and uploaded to [GitHub releases](https://github.com/davwheat/Wear24-NFC-Kernel/releases).
 
 ## Building
 
@@ -17,6 +27,8 @@ This project is a Linux kernel for the Quanta's `dorado` (sold as the Verizon We
 Build and compile into `boot.img` using `./build.sh`.
 
 ### Manual
+
+**NOT RECOMMENDED**
 
 - Enter the `kernel` directory (`cd kernel`)
 - Make sure you `make O=out clean` the project first. (Using `make O=out mrproper` can ruin some stuff like the config.)
@@ -30,8 +42,3 @@ Build and compile into `boot.img` using `./build.sh`.
 - Make the boot image using `../tools/mkbootimg/mkbootimg`. Make sure to include all the parameters `unpackbootimg` gave you.
 
 1: `$(nproc -all)` is just the number of cores on your system. It is set automagically and you can replace it with another number if you'd like.
-
-## Discord
-
-https://discord.gg/8XyTeUC
-
