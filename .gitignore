@@ -40,7 +40,6 @@ Module.symvers
 
 
 kernel/out/*
-!kernel/out/.config
 !.travis.yml
 
 
