@@ -22,18 +22,25 @@ addons:
 
 script: ./build.sh
 
+before_deploy:
+- git config --local user.name $GIT_NAME
+- git config --local user.email $GIT_EMAIL
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
+
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: UAJ+tY8zcU0Z0GgV8yiwpgd+w0XharkII0jktxkfIAPjqPPhwzUHWf1sq5gqEFW2O5uK78By3KG7QTEDkrSfT4A5CUg4cWAj98/Ovh6jbNej5smxBDweJLfStrKZ4hA67FVHY7BUFQyf6JAjsBhmht22f3u3p3H3duxyuvbuCYZ4C48WQQNNf5ZHVbAcHgm2HOrblaENwoByXcTtXgcOHrIKC1H6tyHNoVPTEnODnK2PC/JhbqsJWBpY8ycTqif8KHJsz9bXn6/3dVYTmXDpUt6B6+JdbT/NbMJqSJLg29dKCuQQbw8XxQe0zLvu8dHZH/ZLXmmJO8P/IOEi6VFm6pLoSUaJDnW4+Qtj8Ng3o+jUBNyY+xPea/18aq4xuHFN/RHzl0V68Og3M+8FUts/rokM2RGn1L7SHheWXpI1SJ9Lo44d05MlUrnexOyS/+wNaWZon1DbqN2PVP7Diias3IBBi6sj5qfHSix+vtjAAI1RBzp4v7XTX8Hsv0ofpwIcPB01S2k1UqutqqTBX1Ic1pP84VLk1amgem1jMftUZV+FG8gtiurjcrv4ZLNIR6U7JFPz0ZLqpovqZUxQHMGTijuLTzWF7RQmgYA0UkzdpHSg22/4MxpmnI83YaRQBVC9RggK9IkZ7OObxU1C46eGsT9V1ldKKEykRqZ7vwJ2Mig=
   file_glob: true
   file:
-  - "$TRAVIS_BUILD_DIR/boot-image/JareDav_*.img"
+  - "$TRAVIS_BUILD_DIR/boot-image/JareDav-*-travis-*.img"
   - "$TRAVIS_BUILD_DIR/boot-image/zImage-dtb"
   draft: true
   on:
     repo: davwheat/Wear24-NFC-Kernel
-    branch: releases
+    branch: release
 
 after_success:
 - ./send.sh success $WEBHOOK_URL
