@@ -8,6 +8,18 @@ This project is a Linux kernel for the Quanta's `dorado` (sold as the Verizon We
 
 https://discord.gg/8XyTeUC
 
+## Version Numbering
+
+Version Template: `vX.Y-ZZZZZ(-T)`
+
+`X` = Major Version
+
+`Y` = Minor Version
+
+`ZZZZZ` = Version Type (e.g. Alpha, Beta, Release)
+
+`-T` = Travis CI Build (if not, then it isn't there)
+
 ## Branches
 
 You are on **MASTER**.
