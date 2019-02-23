@@ -11,7 +11,7 @@ timeout () {
 }
 
 clear
-echo "Wear24 NFC kernel"
+echo "Quantify | The \"official\" Wear24 ROM Project"
 echo "WIP by JaredTamana and davwheat (XDA)"
 echo "Thx to osm0sis (mkbootimg), lexri, bensdeals"
 echo "And Quanta/AOSP, I suppose :')"
@@ -27,7 +27,6 @@ mkdir -p out
 
 set -e
 make O=out clean
-#make O=out mrproper
 make O=out dorado_defconfig
 make O=out -j$(nproc --all)
 set +e
