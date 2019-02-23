@@ -1,4 +1,4 @@
-# Wear24 NFC
+# Quantify - The "official" Wear24 ROM Project
 
 [![Build Status](https://travis-ci.org/davwheat/Wear24-NFC-Kernel.svg?branch=master)](https://travis-ci.org/davwheat/Wear24-NFC-Kernel)
 
