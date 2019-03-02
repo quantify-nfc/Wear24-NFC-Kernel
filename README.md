@@ -1,4 +1,4 @@
-# Wear24 NFC
+# Quantify - The "official" Wear24 ROM Project
 
 [![Build Status](https://travis-ci.org/davwheat/Wear24-NFC-Kernel.svg?branch=master)](https://travis-ci.org/davwheat/Wear24-NFC-Kernel)
 
@@ -8,9 +8,21 @@ This project is a Linux kernel for the Quanta's `dorado` (sold as the Verizon We
 
 https://discord.gg/8XyTeUC
 
+## Version Numbering
+
+Version Template: `vX.Y-ZZZZZ(-T)`
+
+`X` = Major Version
+
+`Y` = Minor Version
+
+`ZZZZZ` = Version Type (e.g. Alpha, Beta, Release)
+
+`-T` = Travis CI Build (if not, then it isn't there)
+
 ## Branches
 
-You are on **RELEASE**.
+You are on **NFC**.
 
 This repository has three main branches: `master`, `nfc` and `release`. These branches are semi-equivalent to Google Chrome's Stable, Beta and Dev update channels.
 
