@@ -15,5 +15,5 @@ echo "Deleting unneeded files..."
 rm -rf unpacked
 
 echo "Done!"
-echo If build succeeded, find kernel image here: $(pwd)/Quantify-$DATE_TIME-$branch-.img
+echo "If build succeeded, find kernel image here: $(pwd)/Quantify-Kernel-$DATE_TIME-$branch-.img"
 echo "If build succeeded, find zImage here: "$(pwd)"/zImage-dtb"
