@@ -226,7 +226,7 @@ static void ring_buffer_producer(void)
 	 * Hammer the buffer for 10 secs (this may
 	 * make the system stall)
 	 */
-	trace_printk("Starting ring buffer hammer\n");
+	//trace_printk("Starting ring buffer hammer\n");
 	do_gettimeofday(&start_tv);
 	do {
 		struct ring_buffer_event *event;
@@ -265,7 +265,7 @@ static void ring_buffer_producer(void)
 #endif
 
 	} while (end_tv.tv_sec < (start_tv.tv_sec + RUN_TIME) && !kill_test);
-	trace_printk("End ring buffer hammer\n");
+	//trace_printk("End ring buffer hammer\n");
 
 	if (consumer) {
 		/* Init both completions here to avoid races */
@@ -483,3 +483,4 @@ module_exit(ring_buffer_benchmark_exit);
 MODULE_AUTHOR("Steven Rostedt");
 MODULE_DESCRIPTION("ring_buffer_benchmark");
 MODULE_LICENSE("GPL");
+
