@@ -82,7 +82,7 @@
 
 #undef N_TTY_TRACE
 #ifdef N_TTY_TRACE
-# define n_tty_trace(f, args...)	do { } while (0)
+# define n_tty_trace(f, args...)	//trace_printk(f, ##args)
 #else
 # define n_tty_trace(f, args...)        do { } while (0)
 #endif

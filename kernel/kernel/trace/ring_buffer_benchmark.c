@@ -226,7 +226,8 @@ static void ring_buffer_producer(void)
 	 * Hammer the buffer for 10 secs (this may
 	 * make the system stall)
 	 */
-	//trace_printk("Starting ring buffer hammer\n");
+	// trace_printk("Starting ring buffer hammer\n");
+  
 	do_gettimeofday(&start_tv);
 	do {
 		struct ring_buffer_event *event;
