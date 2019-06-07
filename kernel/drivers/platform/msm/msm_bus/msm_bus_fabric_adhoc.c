@@ -71,13 +71,7 @@ ssize_t bw_show(struct device *dev, struct device_attribute *attr,
 		bus_node->node_bw[DUAL_CTX].util_used,
 		bus_node->node_bw[DUAL_CTX].vrail_used);
 	/* trace_printk(
-	"Max_Act_IB %llu Sum_Act_AB %llu Act_Util_fact %d Act_Vrail_comp %d\n",
-		bus_node->node_bw[ACTIVE_CTX].max_ib,
-		bus_node->node_bw[ACTIVE_CTX].sum_ab,
-		bus_node->node_bw[ACTIVE_CTX].util_used,
-		bus_node->node_bw[ACTIVE_CTX].vrail_used);
-	trace_printk(
-	"Max_Slp_IB %llu Sum_Slp_AB %lluSlp_Util_fact %d Slp_Vrail_comp %d\n",
+	  "Max_Slp_IB %llu Sum_Slp_AB %lluSlp_Util_fact %d Slp_Vrail_comp %d\n",
 		bus_node->node_bw[DUAL_CTX].max_ib,
 		bus_node->node_bw[DUAL_CTX].sum_ab,
 		bus_node->node_bw[DUAL_CTX].util_used,

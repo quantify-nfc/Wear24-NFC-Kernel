@@ -227,6 +227,7 @@ static void ring_buffer_producer(void)
 	 * make the system stall)
 	 */
 	// trace_printk("Starting ring buffer hammer\n");
+  
 	do_gettimeofday(&start_tv);
 	do {
 		struct ring_buffer_event *event;
@@ -483,3 +484,4 @@ module_exit(ring_buffer_benchmark_exit);
 MODULE_AUTHOR("Steven Rostedt");
 MODULE_DESCRIPTION("ring_buffer_benchmark");
 MODULE_LICENSE("GPL");
+
