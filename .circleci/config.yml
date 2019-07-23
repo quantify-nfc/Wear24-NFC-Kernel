@@ -4,25 +4,7 @@ jobs:
     machine:
       image: circleci/classic:latest
       
-      
-
     steps:
-      # Restore cache
-      # Cache is kept for 30 days (max)
-      # The first key that is found is used
-      # E.g. if no cache for the current rev. is found, it will use one for this branch, then any cache, then the old (temporary) cache
-      - restore_cache:
-          keys:
-            - ccache-cache-cache-v1-{{ .Branch }}-{{ .Revision }}
-            - ccache-cache-cache-v1-{{ .Branch }}-
-            - ccache-cache-cache-v1-
-            - ccache-cache-cache
-      - restore_cache:
-          keys:
-            - repo-v1-{{ .Branch }}-{{ .Revision }}
-            - repo-v1-{{ .Branch }}-
-            - repo-v1-
-            - repo
       # Checkout new change(s) not in cache
       - checkout
       # Set git identifiers and set up repo and swap
@@ -41,20 +23,3 @@ jobs:
       # ADD DEPLOY STUFF HERE
       # ADD DEPLOY STUFF HERE
       # ADD DEPLOY STUFF HERE
-      
-      # GC is disabled in Circle -- it is good to GC before caching source
-      # https://circleci.com/docs/2.0/caching/#source-caching
-      - run:
-          name: Clean up
-          command: |
-            git gc
-            make clobber
-      # Save cache
-      - save_cache:
-          key: ccache-cache-cache-v1-{{ .Branch }}-{{ .Revision }}
-          paths:
-            - "~/.ccache"
-      - save_cache:
-          key: repo-v1-{{ .Branch }}-{{ .Revision }}
-          paths:
-            - "./"
