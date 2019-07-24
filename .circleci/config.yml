@@ -27,6 +27,7 @@ tar -xvf ghr_v0.12.2_linux_amd64.tar.gz .
 chmod +x ghr_v0.12.2_linux_amd64/ghr
 echo $(version_increment $(cat .circleci/version)) > .circleci/version
 ghr_v0.12.2_linux_amd64/ghr -t ${JARED_API_KEY} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${.circleci/version} ./boot-image/out/
+fi
       # GC is disabled in Circle -- it is good to GC before caching source
       # https://circleci.com/docs/2.0/caching/#source-caching
       - run:
