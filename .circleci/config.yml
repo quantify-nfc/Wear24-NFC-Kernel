@@ -4,8 +4,6 @@ jobs:
     machine:
       image: circleci/classic:latest
       
-      
-
     steps:
       - checkout
       # Set git identifiers
