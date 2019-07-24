@@ -40,7 +40,7 @@ Module.symvers
 
 
 kernel/out/*
-!.travis.yml
+!.circleci
 
 
 
