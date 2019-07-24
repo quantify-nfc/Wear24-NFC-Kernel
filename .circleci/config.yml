@@ -18,13 +18,14 @@ jobs:
       - 
         run: 
           command: |
-              - if [ "$CIRCLE_BRANCH" = "release" ]; then
-              - curl https://github.com/tcnksm/ghr/releases/download/v0.12.2/ghr_v0.12.2_linux_amd64.tar.gz ;
-              - tar -xvf ghr_v0.12.2_linux_amd64.tar.gz ;
-              - chmod +x ghr_v0.12.2_linux_amd64/ghr ;
-              - echo $(version_increment $(cat .circleci/version)) > .circleci/version ;
-              - ghr_v0.12.2_linux_amd64/ghr -t ${JARED_API_KEY} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${.circleci/version} ./boot-image/out/ ;
-              - fi
+              if [ "$CIRCLE_BRANCH" = "release" ]; then
+              curl https://github.com/tcnksm/ghr/releases/download/v0.12.2/ghr_v0.12.2_linux_amd64.tar.gz ;
+              tar -xvf ghr_v0.12.2_linux_amd64.tar.gz ;
+              chmod +x ghr_v0.12.2_linux_amd64/ghr ;
+              . .circleci/increment_ver.sh
+              echo $(version_increment $(cat .circleci/version)) > .circleci/version ;
+              ghr_v0.12.2_linux_amd64/ghr -t ${JARED_API_KEY} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${.circleci/version} ./boot-image/out/ ;
+              fi
           name: "Check Branch"
       - 
         run: 
