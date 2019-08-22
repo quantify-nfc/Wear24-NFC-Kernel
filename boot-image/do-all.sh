@@ -7,6 +7,7 @@ export branch=$(git symbolic-ref --short HEAD)
 echo "Deleting unneeded files..."
 rm -rf unpacked
 
+mkdir ../out/
 mv "Quantify-Kernel-$DATE_TIME-$branch.img" ../out/
 mv zImage-dtb ../out/
 echo "Done!"
