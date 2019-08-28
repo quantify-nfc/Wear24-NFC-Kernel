@@ -29,7 +29,7 @@ export ARCH=arm && export SUBARCH=arm
 mkdir -p out
 
 set -e
-make O=out clean
+#make O=out clean
 make O=out dorado_defconfig
 make O=out -j$(nproc --all)
 set +e

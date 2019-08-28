@@ -1,47 +1,56 @@
---- 
-jobs: 
-  build: 
-    machine: 
-      image: "circleci/classic:latest"
-    steps: 
-      - checkout
-      - 
-        run: 
-          command: |
-              git config user.email "test@example.com"
-              git config user.name "CircleCI"
-          name: "Build Setup"
-      - 
-        run: 
-          command: "./build.sh -n\n"
-          name: "Kernel Build"
-      - 
-        run: 
-          command: |
-              if [ "$CIRCLE_BRANCH" = "release" ]; then
-              curl https://github.com/tcnksm/ghr/releases/download/v0.12.2/ghr_v0.12.2_linux_amd64.tar.gz ;
-              tar -xvf ghr_v0.12.2_linux_amd64.tar.gz ;
-              chmod +x ghr_v0.12.2_linux_amd64/ghr ;
-              . .circleci/increment_ver.sh
-              echo $(version_increment $(cat .circleci/version)) > .circleci/version ;
-              ghr_v0.12.2_linux_amd64/ghr -t ${JARED_API_KEY} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${.circleci/version} ./boot-image/out/ ;
-              fi
-          name: "Check Branch"
-      - 
-        run: 
-          command: |
-              git gc
-              make clobber
-          name: "Clean up"
-      - 
-        save_cache: 
-          key: "ccache-cache-cache-v1-{{ .Branch }}-{{ .Revision }}"
-          paths: 
-            - ~/.ccache
-      - 
-        save_cache: 
-          key: "repo-v1-{{ .Branch }}-{{ .Revision }}"
-          paths: 
-            - ./
 version: 2
+jobs:
+  build:
+    branches:
+      ignore:
+       - release
+       # if we aren't on the release branch, this is just a test build
+       # so don't ghr it
+    machine:
+      image: circleci/classic:latest
+      
+    steps:
+      - checkout
+      # Set git identifiers
+      - run:
+          name: Build Setup
+          command: |
+            git config user.email "test@example.com"
+            git config user.name "CircleCI"
+      # Run build script
+      - run:
+          name: Kernel Build
+          command: |
+            ./build.sh -n
 
+  buildAndDeploy:
+    branches:
+      only:
+       - release
+       # if we're on release, that means this push is ready
+       # for a release, let's ghr
+    machine:
+      image: circleci/classic:latest
+      
+    steps:
+      - checkout
+      # Set git identifiers
+      - run:
+          name: Build Setup
+          command: |
+            git config user.email "test@example.com"
+            git config user.name "CircleCI"
+      # Run build script
+      - run:
+          name: Kernel Build
+          command: |
+            ./build.sh -n
+      # get the binary, unpack it, make it executable, then release
+      - run:
+          name: Deploy
+          command: |
+            curl https://github.com/tcnksm/ghr/releases/download/v0.12.2/ghr_v0.12.2_linux_amd64.tar.gz #
+            tar -xvf ghr_v0.12.2_linux_amd64.tar.gz
+            chmod +x ghr_v0.12.2_linux_amd64/ghr
+            echo $(version_increment $(cat .circleci/version)) > .circleci/version
+            ghr_v0.12.2_linux_amd64/ghr -t ${JARED_API_KEY} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${.circleci/version} ./boot-image/out
