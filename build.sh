@@ -11,6 +11,8 @@ timeout () {
 }
 
 clear
+
+if [ ! -d ".quantifyinit" ]; then
 echo "Quantify | The \"official\" Wear24 ROM Project"
 echo "WIP by JaredTamana and davwheat (XDA)"
 echo "Thx to osm0sis (mkbootimg), lexri, bensdeals"
@@ -19,6 +21,7 @@ echo "---------------------------------------------------"
 timeout 3 "Build begins in %s seconds."
 
 cd kernel
+fi
 
 export CROSS_COMPILE=$(pwd)/../tools/toolchain/arm-eabi/bin/
 export ARCH=arm && export SUBARCH=arm
@@ -26,7 +29,7 @@ export ARCH=arm && export SUBARCH=arm
 mkdir -p out
 
 set -e
-make O=out clean
+#make O=out clean
 make O=out dorado_defconfig
 make O=out -j$(nproc --all)
 set +e
